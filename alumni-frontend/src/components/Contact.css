@@ -1,0 +1,117 @@
+/* ===========================
+        Contact
+=========================== */
+
+.contact{
+
+    padding:90px 8%;
+
+    background:#ffffff;
+
+    text-align:center;
+
+}
+
+.contact h2{
+
+    font-size:42px;
+
+    color:#0d47a1;
+
+    margin-bottom:15px;
+
+}
+
+.contact > p{
+
+    color:#666;
+
+    font-size:18px;
+
+    margin-bottom:50px;
+
+}
+
+.contact-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+.contact-card{
+
+    background:#f8fbff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.contact-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.contact-card h3{
+
+    color:#1565c0;
+
+    margin-bottom:20px;
+
+    font-size:24px;
+
+}
+
+.contact-card p{
+
+    color:#555;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+}
+
+@media(max-width:992px){
+
+.contact-container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.contact{
+
+padding:70px 20px;
+
+}
+
+.contact h2{
+
+font-size:34px;
+
+}
+
+.contact-container{
+
+grid-template-columns:1fr;
+
+}
+
+}

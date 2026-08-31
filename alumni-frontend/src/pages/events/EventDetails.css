@@ -1,0 +1,242 @@
+/* ===========================
+        Event Details
+=========================== */
+
+.event-details-container{
+
+    padding:40px;
+    margin-left:260px;
+    margin-top:85px;
+
+    background:#f5f7fb;
+
+    min-height:100vh;
+
+}
+
+.event-details-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.event-banner{
+
+    width:100%;
+
+    height:380px;
+
+    object-fit:cover;
+
+}
+
+.event-content{
+
+    padding:35px;
+
+}
+
+.event-content h2{
+
+    font-size:34px;
+
+    color:#1565c0;
+
+    margin-bottom:30px;
+
+}
+
+.event-info{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin-bottom:35px;
+
+}
+
+.event-info p{
+
+    background:#f7f9fc;
+
+    padding:15px 18px;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    color:#444;
+
+}
+
+.event-description{
+
+    margin-top:20px;
+
+}
+
+.event-description h3{
+
+    color:#1565c0;
+
+    margin-bottom:15px;
+
+    font-size:26px;
+
+}
+
+.event-description p{
+
+    line-height:1.8;
+
+    color:#555;
+
+    font-size:16px;
+
+}
+
+
+.register-btn{
+
+    flex:1;
+
+    border:none;
+
+    padding:15px;
+
+    background:#1565c0;
+
+    color:#fff;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.register-btn:hover{
+
+    background:#0d47a1;
+
+}
+
+.edit-btn{
+
+    border:none;
+    padding:15px;
+    background:#ff9800;
+    color:#fff;
+    border-radius:10px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.edit-btn:hover{
+
+    background:#f57c00;
+
+}
+
+.delete-btn{
+
+    border:none;
+
+    padding:15px;
+
+    background:#dc3545;
+
+    color:#fff;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.delete-btn:hover{
+
+    background:#bb2d3b;
+
+}
+
+.back-btn{
+
+    border:none;
+
+    padding:15px;
+
+    background:#6c757d;
+
+    color:#fff;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    background:#495057;
+
+}
+
+.event-buttons{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:35px;
+}
+
+.event-buttons button{
+    width:100%;
+}
+
+@media(max-width:992px){
+
+.event-details-container{
+
+    margin-left:0;
+
+    padding:20px;
+
+}
+
+.event-info{
+
+    grid-template-columns:1fr;
+
+}
+
+.event-banner{
+
+    height:260px;
+
+}
+
+
+}
+

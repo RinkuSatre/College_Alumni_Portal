@@ -1,0 +1,108 @@
+.apply-container {
+
+    min-height: 70vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #f8fafc;
+
+    padding: 40px;
+
+}
+
+
+.apply-container h2 {
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+
+    color: #1e293b;
+
+}
+
+
+.apply-container form {
+
+    width: 400px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+
+}
+
+
+.apply-container label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-weight: 600;
+
+}
+
+
+.apply-container input[type="file"] {
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.apply-container button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+}
+
+
+.apply-container button:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+@media(max-width:500px){
+
+    .apply-container form{
+
+        width: 100%;
+
+    }
+
+}

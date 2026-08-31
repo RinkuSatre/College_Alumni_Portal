@@ -1,0 +1,209 @@
+/* ===========================
+          Footer
+=========================== */
+
+.footer{
+
+    background:#0d47a1;
+
+    color:#fff;
+
+    padding:70px 8% 25px;
+
+}
+
+.footer-container{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:40px;
+
+}
+
+.footer-about img{
+
+    width:70px;
+
+    margin-bottom:15px;
+
+}
+
+.footer-about h3{
+
+    margin-bottom:15px;
+
+    font-size:24px;
+
+}
+
+.footer-about p{
+
+    color:#dbe8ff;
+
+    line-height:1.8;
+
+}
+
+.footer-links h3,
+.footer-contact h3,
+.footer-social h3{
+
+    margin-bottom:20px;
+
+    font-size:22px;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.footer-links a{
+
+    color:#dbe8ff;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+    color:#fff;
+
+    padding-left:6px;
+
+}
+
+.footer-contact p{
+
+    color:#dbe8ff;
+
+    margin-bottom:12px;
+
+}
+
+.social-icons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:15px;
+
+}
+
+.social-icons a{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.social-icons a:hover{
+
+    background:#fff;
+
+    color:#1565c0;
+
+    transform:translateY(-5px);
+
+}
+
+.footer hr{
+
+    margin:45px 0 20px;
+
+    border:none;
+
+    height:1px;
+
+    background:rgba(255,255,255,.25);
+
+}
+
+.copyright{
+
+    text-align:center;
+
+    color:#dbe8ff;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+@media(max-width:992px){
+
+.footer-container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.footer{
+
+padding:60px 20px 25px;
+
+}
+
+.footer-container{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.footer-about img{
+
+margin:auto auto 15px;
+
+display:block;
+
+}
+
+.footer-links{
+
+align-items:center;
+
+}
+
+.social-icons{
+
+justify-content:center;
+
+}
+
+}

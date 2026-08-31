@@ -1,0 +1,186 @@
+/* ===========================
+        Sidebar
+=========================== */
+
+.sidebar{
+
+    width:260px;
+
+    height:100vh;
+
+    background:#0d47a1;
+
+    color:#fff;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:25px 20px;
+
+    box-shadow:5px 0 20px rgba(0,0,0,.12);
+
+    overflow-y:auto;
+    
+    overflow-x:hidden;
+
+}
+
+.sidebar-logo{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.sidebar-logo img{
+
+    width:75px;
+
+    margin-bottom:10px;
+
+}
+
+.sidebar-logo h3{
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+.sidebar ul li{
+
+    padding:0;
+
+    margin-bottom:10px;
+
+    list-style:none;
+
+}
+
+
+.logout-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#fff;
+
+    color:#0d47a1;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.logout-btn:hover{
+
+    background:#1565c0;
+
+    color:#fff;
+
+}
+
+@media(max-width:768px){
+
+.sidebar{
+
+    width:220px;
+
+}
+
+}
+
+.sidebar ul li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.sidebar ul li a:hover{
+
+    background:rgba(255,255,255,.18);
+
+    transform:translateX(8px);
+
+}
+
+.sidebar ul li a svg{
+
+    font-size:20px;
+
+}
+
+.sidebar-link-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    text-align: left;
+    
+    
+}

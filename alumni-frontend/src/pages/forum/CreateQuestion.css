@@ -1,0 +1,201 @@
+.create-question-container{
+
+    margin-left:260px;
+    margin-top:80px;
+    padding:40px;
+    min-height:100vh;
+    background:#f5f7fb;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+}
+
+.create-question-card{
+
+    width:100%;
+    max-width:750px;
+    background:#fff;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.create-question-card h2{
+
+    text-align:center;
+    color:#1565c0;
+    margin-bottom:30px;
+    font-size:30px;
+
+}
+
+.create-question-card form{
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+
+}
+
+.create-question-card input,
+.create-question-card textarea,
+.create-question-card select{
+
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+    transition:.3s;
+    box-sizing:border-box;
+
+}
+
+.create-question-card textarea{
+
+    resize:vertical;
+    min-height:150px;
+
+}
+
+.create-question-card input:focus,
+.create-question-card textarea:focus,
+.create-question-card select:focus{
+
+    border-color:#1565c0;
+    box-shadow:0 0 8px rgba(21,101,192,.2);
+
+}
+
+.question-buttons{
+
+    display:flex;
+    gap:20px;
+    margin-top:10px;
+
+}
+
+.create-btn{
+
+    flex:1;
+    border:none;
+    padding:15px;
+    background:#1565c0;
+    color:#fff;
+    border-radius:10px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.create-btn:hover{
+
+    background:#0d47a1;
+
+}
+
+.cancel-btn{
+
+    flex:1;
+    border:none;
+    padding:15px;
+    background:#6c757d;
+    color:#fff;
+    border-radius:10px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+.cancel-btn:hover{
+
+    background:#495057;
+
+}
+
+@media(max-width:992px){
+
+.create-question-container{
+
+    margin-left:0;
+    padding:20px;
+
+}
+
+.create-question-card{
+
+    padding:25px;
+
+}
+
+.question-buttons{
+
+    flex-direction:column;
+
+}
+
+}
+
+.update-question-btn{
+
+    width:100%;
+    padding:14px;
+
+    background:#1565c0;
+    color:#fff;
+
+    border:none;
+    border-radius:10px;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.update-question-btn:hover{
+
+    background:#0d47a1;
+    transform:translateY(-2px);
+
+}
+
+.submit-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    background:#1565c0;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.submit-btn:hover{
+
+    background:#0d47a1;
+
+    transform:translateY(-2px);
+
+}

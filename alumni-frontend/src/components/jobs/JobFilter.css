@@ -1,0 +1,44 @@
+.job-filter{
+    display:flex;
+    gap:15px;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+}
+
+.job-filter select{
+    flex:1;
+    min-width:220px;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #d1d5db;
+    font-size:15px;
+    outline:none;
+}
+
+.job-filter button{
+    padding:14px 24px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.job-filter button:hover{
+    background:#1d4ed8;
+}
+
+@media(max-width:768px){
+
+.job-filter{
+    flex-direction:column;
+}
+
+.job-filter button,
+.job-filter select{
+    width:100%;
+}
+
+}

@@ -1,0 +1,137 @@
+/* ===========================
+        Feedback
+=========================== */
+
+.feedback{
+
+    padding:90px 8%;
+
+    background:#f8fbff;
+
+    text-align:center;
+
+}
+
+.feedback h2{
+
+    font-size:42px;
+
+    color:#0d47a1;
+
+    margin-bottom:15px;
+
+}
+
+.feedback p{
+
+    color:#666;
+
+    font-size:18px;
+
+    margin-bottom:40px;
+
+}
+
+.feedback form{
+
+    max-width:700px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.feedback input,
+.feedback select,
+.feedback textarea{
+
+    width:100%;
+
+    padding:16px;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.3s;
+
+    font-family:inherit;
+
+}
+
+.feedback input:focus,
+.feedback select:focus,
+.feedback textarea:focus{
+
+    border-color:#1565c0;
+
+    box-shadow:0 0 10px rgba(21,101,192,.15);
+
+}
+
+.feedback textarea{
+
+    resize:none;
+
+}
+
+.feedback button{
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1565c0;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.feedback button:hover{
+
+    background:#0d47a1;
+
+    transform:translateY(-2px);
+
+}
+
+@media(max-width:768px){
+
+.feedback{
+
+padding:70px 20px;
+
+}
+
+.feedback h2{
+
+font-size:32px;
+
+}
+
+.feedback p{
+
+font-size:16px;
+
+}
+
+}

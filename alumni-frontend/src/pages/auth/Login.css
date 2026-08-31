@@ -1,0 +1,827 @@
+/* ===========================
+   Google Font
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===========================
+   Global
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f8ff;
+}
+
+/* ===========================
+   Login Page
+=========================== */
+
+.login-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    background:linear-gradient(135deg,#f8fbff,#eef5ff);
+}
+
+/* ===========================
+   Main Card
+=========================== */
+
+.login-container{
+    width:100%;
+    max-width:1450px;
+    min-height:760px;
+
+    background:#ffffff;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.10);
+}
+
+/* ===========================
+   Left Side
+=========================== */
+
+.login-left{
+
+    padding:70px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    background:#ffffff;
+
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.college-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+    margin-bottom:30px;
+
+}
+
+/* ===========================
+   Logo
+=========================== */
+
+.logo{
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:contain;
+
+    flex-shrink:0;
+
+}
+
+/* ===========================
+   Text
+=========================== */
+
+.college-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.college-group{
+
+    font-size:18px;
+
+    color:#64748b;
+
+    margin-bottom:10px;
+
+    font-weight:500;
+
+}
+
+.college-name{
+
+    font-size:3.2rem;
+
+    line-height:1.15;
+
+    font-weight:800;
+
+    color:#1e3a8a;
+
+    margin-bottom:12px;
+
+}
+
+.portal-title{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:#f59e0b;
+
+}
+
+.tagline{
+
+    font-size:1.35rem;
+
+    color:#475569;
+
+    margin-top:20px;
+
+    margin-bottom:40px;
+
+}
+
+/* ===========================
+   Feature List
+=========================== */
+
+.feature-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+    margin-top:15px;
+
+}
+
+.feature-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:1.3rem;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+.feature-icon{
+
+    color:#fbbf24;
+
+    font-size:28px;
+
+}
+
+/* ===========================
+   Right Side
+=========================== */
+
+.login-right{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #4f8cff
+    );
+
+}
+
+/* ===========================
+   Glass Card
+=========================== */
+
+.login-card{
+
+    width:100%;
+
+    max-width:470px;
+
+    padding:45px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.30);
+
+    box-shadow:
+
+    0 20px 45px rgba(0,0,0,.18);
+
+}
+
+/* ===========================
+   Login Heading
+=========================== */
+
+.login-card h2{
+
+    text-align:center;
+
+    color:#ffffff;
+
+    font-size:2.4rem;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.login-subtitle{
+
+    text-align:center;
+
+    color:#eef5ff;
+
+    margin-bottom:35px;
+
+    font-size:18px;
+
+}
+
+/* ===========================
+   Labels
+=========================== */
+
+.login-card label{
+
+    color:white;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+    display:block;
+
+}
+
+/* ===========================
+   Input Group
+=========================== */
+
+.input-group{
+
+    position:relative;
+
+    margin-bottom:22px;
+
+}
+
+/* ===========================
+   Inputs
+=========================== */
+
+.input-group input{
+
+    width:100%;
+
+    height:58px;
+
+    padding-left:52px;
+
+    padding-right:52px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    background:rgba(255,255,255,.14);
+
+    color:white;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.input-group input::placeholder{
+
+    color:#e5e7eb;
+
+}
+
+/* ===========================
+   Focus
+=========================== */
+
+.input-group input:focus{
+
+    border-color:#FFD54F;
+
+    box-shadow:
+
+    0 0 0 4px rgba(255,213,79,.20);
+
+}
+
+/* ===========================
+   Left Icon
+=========================== */
+
+.input-icon{
+
+    position:absolute;
+
+    top:50%;
+
+    left:18px;
+
+    transform:translateY(-50%);
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+/* ===========================
+   Eye Icon
+=========================== */
+
+.eye-icon{
+
+    position:absolute;
+
+    right:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+/* ===========================
+   Login Button
+=========================== */
+
+.login-btn{
+
+    width:100%;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#FFC107;
+
+    color:#111827;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    margin-top:10px;
+
+}
+
+.login-btn:hover{
+
+    background:#FFB300;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+    0 10px 25px rgba(255,193,7,.35);
+
+}
+
+/* ===========================
+   Register
+=========================== */
+
+.register-text{
+
+    text-align:center;
+
+    color:white;
+
+    margin-top:28px;
+
+}
+
+.register-text a{
+
+    color:#FFD54F;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+}
+
+.register-text a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ===========================
+   Glass Card Animation
+=========================== */
+
+.login-card{
+
+    animation:fadeIn .8s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   Floating Logo
+=========================== */
+
+.logo{
+
+    animation:floatLogo 3s ease-in-out infinite;
+
+}
+
+@keyframes floatLogo{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+/* ===========================
+   Hover Effects
+=========================== */
+
+.feature-item{
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.feature-item:hover{
+
+    transform:translateX(12px);
+
+    color:#2563eb;
+
+}
+
+.feature-item:hover .feature-icon{
+
+    transform:scale(1.2);
+
+}
+
+/* ===========================
+   Heading Animation
+=========================== */
+
+.college-name{
+
+    animation:slideLeft .9s ease;
+
+}
+
+.portal-title{
+
+    animation:slideLeft 1.1s ease;
+
+}
+
+@keyframes slideLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+/* ===========================
+   Button Animation
+=========================== */
+
+.login-btn{
+
+    transition:.35s;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 15px 35px rgba(255,193,7,.45);
+
+}
+
+.login-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/* ===========================
+   Input Hover
+=========================== */
+
+.input-group input:hover{
+
+    border-color:#FFD54F;
+
+}
+
+/* ===========================
+   Selection
+=========================== */
+
+::selection{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563eb;
+
+    border-radius:20px;
+
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media(max-width:1100px){
+
+.login-container{
+
+grid-template-columns:1fr;
+
+}
+
+.login-left{
+
+padding:50px;
+
+text-align:center;
+
+}
+
+.college-header{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.feature-list{
+
+margin-top:40px;
+
+align-items:center;
+
+}
+
+.login-right{
+
+padding:50px;
+
+}
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media(max-width:768px){
+
+.login-page{
+
+padding:20px;
+
+}
+
+.login-container{
+
+border-radius:20px;
+
+}
+
+.login-left{
+
+padding:35px;
+
+}
+
+.logo{
+
+width:130px;
+
+height:130px;
+
+}
+
+.college-name{
+
+font-size:2.3rem;
+
+}
+
+.portal-title{
+
+font-size:1.5rem;
+
+}
+
+.tagline{
+
+font-size:18px;
+
+}
+
+.login-right{
+
+padding:30px;
+
+}
+
+.login-card{
+
+padding:30px;
+
+}
+
+.login-card h2{
+
+font-size:2rem;
+
+}
+
+.feature-item{
+
+font-size:18px;
+
+}
+
+}
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media(max-width:480px){
+
+.logo{
+
+width:110px;
+
+height:110px;
+
+}
+
+.college-name{
+
+font-size:1.8rem;
+
+}
+
+.portal-title{
+
+font-size:1.3rem;
+
+}
+
+.login-card{
+
+padding:25px;
+
+}
+
+.login-btn{
+
+height:52px;
+
+font-size:18px;
+
+}
+
+}

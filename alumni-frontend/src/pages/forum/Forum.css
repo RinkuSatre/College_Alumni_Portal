@@ -1,0 +1,172 @@
+.forum-container{
+    margin-left:260px;
+    margin-top:80px;
+    padding:30px;
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+.forum-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.forum-header h2{
+    color:#1565c0;
+    font-size:32px;
+    font-weight:700;
+}
+
+.ask-btn{
+    background:#1565c0;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 22px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.ask-btn:hover{
+    background:#0d47a1;
+}
+
+.search-box{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    margin-bottom:25px;
+    outline:none;
+}
+
+.search-box:focus{
+    border-color:#1565c0;
+}
+
+/* ---------- GRID ---------- */
+
+.question-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(350px,1fr));
+    gap:24px;
+}
+
+/* ---------- CARD ---------- */
+
+.question-card{
+    background:#fff;
+    border-radius:15px;
+    padding:22px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+    display:flex;
+    flex-direction:column;
+
+    min-height:280px;
+    height:auto;
+}
+
+.question-card:hover{
+    transform:translateY(-6px);
+}
+
+/* ---------- TITLE ---------- */
+
+.question-card h3{
+    color:#1565c0;
+    font-size:22px;
+    margin:0 0 15px;
+    height:60px;
+    overflow:hidden;
+}
+
+/* ---------- DESCRIPTION ---------- */
+
+.question-card p{
+    color:#555;
+    line-height:1.7;
+    margin:0;
+
+    height:110px;
+
+    overflow:hidden;
+}
+
+/* ---------- INFO ---------- */
+
+.question-info{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-top:auto;
+
+    padding-top:15px;
+
+    color:#666;
+    font-size:14px;
+}
+
+/* ---------- BUTTON ---------- */
+
+.details-btn{
+    display:block;
+    width:100%;
+    padding:10px 0;
+    margin-top:15px;
+
+    text-align:center;
+
+    background:#1565c0;
+    color:#fff;
+
+    border-radius:8px;
+
+    font-size:14px;
+    font-weight:600;
+}
+
+.details-btn:hover{
+
+    background:#0d47a1;
+    transform:translateY(-2px);
+
+}
+
+/* ---------- EMPTY ---------- */
+
+.no-question{
+    text-align:center;
+    margin-top:70px;
+    color:#777;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:992px){
+
+.forum-container{
+    margin-left:0;
+    padding:20px;
+}
+
+.forum-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.question-grid{
+    grid-template-columns:1fr;
+}
+
+.question-card{
+    height:auto;
+}
+
+}

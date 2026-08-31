@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef3fb;
+}
+
+.login-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.login-container{
+    width:1350px;
+    max-width:100%;
+    min-height:760px;
+    background:#fff;
+    border-radius:30px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+}
+
+.login-left{
+    flex:1.15;
+    background:#ffffff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:60px;
+    border-right:1px solid #edf1f7;
+}
+
+.college-header{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    margin-bottom:30px;
+}
+
+.logo{
+    width:220px;
+    height:auto;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.college-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.college-group{
+    font-size:14px;
+    color:#666;
+    margin-bottom:8px;
+}
+
+.college-name{
+    font-size:36px;
+    font-weight:700;
+    color:#0d47a1;
+    line-height:1.2;
+}
+
+.portal-title{
+    font-size:22px;
+    color:#1976d2;
+    margin-top:10px;
+    font-weight:600;
+}
+
+.tagline{
+    margin-top:15px;
+    font-size:18px;
+    color:#555;
+    font-weight:500;
+}
+
+/* ================= RIGHT SIDE ================= */
+
+.login-right{
+    flex:0.85;
+    background:#f7f9fc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px;
+}
+
+.login-card{
+    width:100%;
+    max-width:430px;
+    background:#fff;
+    border-radius:25px;
+    padding:45px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.login-card h2{
+    color:#0d47a1;
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.login-subtitle{
+    color:#777;
+    margin-bottom:30px;
+    font-size:15px;
+}
+
+/* ================= FEATURES ================= */
+
+.feature-list{
+    margin-top:45px;
+    width:100%;
+}
+
+.feature-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+    font-size:17px;
+    color:#444;
+}
+
+.feature-icon{
+    color:#1976d2;
+    font-size:22px;
+}
+
+/* ================= INPUTS ================= */
+
+.input-group{
+    position:relative;
+    display:block !important;
+    width:100%;
+    margin-bottom:22px;
+}
+
+.input-group input,
+.input-group select{
+    width:100%;
+    height:55px;
+    border:1px solid #d8e1ec;
+    border-radius:14px;
+    padding-left:50px;
+    padding-right:50px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+    background:#fff;
+    padding-left:50px !important;
+}
+
+.input-group input:focus,
+.input-group select:focus{
+    border-color:#1976d2;
+    box-shadow:0 0 0 3px rgba(25,118,210,.15);
+}
+
+.input-icon{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#1976d2;
+    font-size:18px;
+    z-index:5;
+    pointer-events:none;
+}
+
+.eye-icon{
+    position:absolute;
+    right:18px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#666;
+}
+
+.login-btn{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:14px;
+    background:#1565c0;
+    color:#fff;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#0d47a1;
+}
+
+.register-text{
+    margin-top:25px;
+    text-align:center;
+    font-size:15px;
+}
+
+.register-text a{
+    text-decoration:none;
+    color:#1565c0;
+    font-weight:600;
+    margin-left:6px;
+}
+
+.alert{
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+/* ===== INPUT BOX ===== */
+
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.input-box input,
+.input-box select {
+  width: 100%;
+  height: 56px;
+  padding: 0 50px;
+  border: 1px solid #d8e3f2;
+  border-radius: 14px;
+  background: #ffffff;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus,
+.input-box select:focus {
+  border-color: #1f5fbf;
+  box-shadow: 0 0 0 3px rgba(31, 95, 191, 0.12);
+}
+
+/* Left Icons */
+
+.input-icon {
+  position: absolute;
+  left: 18px;
+  color: #1f5fbf;
+  font-size: 18px;
+  z-index: 2;
+}
+
+/* Eye Button */
+
+.eye-btn {
+  position: absolute;
+  right: 15px;
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 2;
+}
+
+.eye-btn:hover {
+  color: #1f5fbf;
+}
+
+/* Remove Bootstrap Styles */
+
+.input-box input,
+.input-box select,
+.eye-btn {
+  box-sizing: border-box;
+}
+
+/* ================= ANIMATION ================= */
+
+.login-card{
+    animation:fadeIn .7s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.logo{
+    transition:.4s;
+}
+
+.logo:hover{
+    transform:scale(1.05);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+    .login-container{
+        flex-direction:column;
+        min-height:auto;
+    }
+
+    .login-left{
+        padding:40px 30px;
+        border-right:none;
+        border-bottom:1px solid #eee;
+    }
+
+    .college-header{
+        flex-direction:column;
+        text-align:center;
+        gap:20px;
+    }
+
+    .logo{
+        width:180px;
+    }
+
+    .college-name{
+        font-size:30px;
+    }
+
+    .portal-title{
+        font-size:20px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .login-page{
+        padding:20px;
+    }
+
+    .login-left{
+        padding:30px 20px;
+    }
+
+    .login-right{
+        padding:20px;
+    }
+
+    .login-card{
+        padding:30px 20px;
+    }
+
+    .logo{
+        width:150px;
+    }
+
+    .college-name{
+        font-size:24px;
+    }
+
+    .portal-title{
+        font-size:18px;
+    }
+
+    .feature-item{
+        font-size:15px;
+    }
+
+}
