@@ -7,6 +7,8 @@ import "./Profile.css";
 function StudentProfile() {
   const user = JSON.parse(localStorage.getItem("user"));
 
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+
   const [profile, setProfile] = useState({
     full_name: "",
     prn_number: "",
@@ -15,6 +17,7 @@ function StudentProfile() {
     year: "",
     phone: "",
     address: "",
+    profile_photo: "",
   });
 
   useEffect(() => {
@@ -33,6 +36,7 @@ function StudentProfile() {
         year: response.data.year || "",
         phone: response.data.phone || "",
         address: response.data.address || "",
+        profile_photo: response.data.profile_photo || "",
       });
     } catch (error) {
       console.log("GET Error:", error);
@@ -46,15 +50,63 @@ function StudentProfile() {
     });
   };
 
+  // Profile photo select
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    // Check image
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image file.");
+      return;
+    }
+
+    // 5 MB limit
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Image size should be less than 5 MB.");
+      return;
+    }
+
+    setSelectedPhoto(file);
+
+    // Preview
+    setProfile({
+      ...profile,
+      profile_photo: URL.createObjectURL(file),
+    });
+  };
+
   const handleSave = async () => {
     try {
-      await API.put("profiles/student/", profile);
+      const formData = new FormData();
+
+      formData.append("full_name", profile.full_name);
+      formData.append("prn_number", profile.prn_number);
+      formData.append("department", profile.department);
+      formData.append("course", profile.course);
+      formData.append("year", profile.year);
+      formData.append("phone", profile.phone);
+      formData.append("address", profile.address);
+
+      // Add photo only if new photo selected
+      if (selectedPhoto) {
+        formData.append("profile_photo", selectedPhoto);
+      }
+
+      await API.put("profiles/student/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       alert("Profile Updated Successfully ✅");
 
-      fetchProfile();
+      setSelectedPhoto(null);
+
+      await fetchProfile();
     } catch (error) {
-      console.log("PUT Error:", error);
+      console.log("PUT Error:", error.response?.data);
       alert("Profile Update Failed ❌");
     }
   };
@@ -66,18 +118,47 @@ function StudentProfile() {
 
       <div className="profile-content">
         <div className="profile-card">
+
+          {/* PROFILE HEADER */}
           <div className="profile-header">
-            <img
-              src="https://ui-avatars.com/api/?name=Student&background=1565c0&color=fff&size=200"
-              alt="Profile"
-            />
+
+            <div className="profile-photo-wrapper">
+
+              <img
+                src={
+                  profile.profile_photo
+                    ? profile.profile_photo
+                    : "https://ui-avatars.com/api/?name=Student&background=1565c0&color=fff&size=200"
+                }
+                alt="Profile"
+                className="profile-photo"
+              />
+
+              <label
+                htmlFor="student-profile-photo"
+                className="photo-upload-btn"
+              >
+                📷 Change Photo
+              </label>
+
+              <input
+                id="student-profile-photo"
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoChange}
+                style={{ display: "none" }}
+              />
+
+            </div>
 
             <h2>{user?.username}</h2>
 
             <p>Student</p>
           </div>
 
+          {/* PROFILE FORM */}
           <div className="profile-form">
+
             <input
               type="text"
               name="full_name"
@@ -139,7 +220,9 @@ function StudentProfile() {
             >
               Save Profile
             </button>
+
           </div>
+
         </div>
       </div>
     </>

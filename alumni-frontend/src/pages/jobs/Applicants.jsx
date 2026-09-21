@@ -86,15 +86,23 @@ function Applicants() {
 
     };
 
-        if (loading) {
+    if (loading) {
 
-        return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
+        return (
+            <h2 style={{ textAlign: "center" }}>
+                Loading...
+            </h2>
+        );
 
     }
 
     if (error) {
 
-        return <h2 style={{ textAlign: "center" }}>{error}</h2>;
+        return (
+            <h2 style={{ textAlign: "center" }}>
+                {error}
+            </h2>
+        );
 
     }
 
@@ -158,6 +166,41 @@ function Applicants() {
                                     ).toLocaleDateString("en-IN")}
 
                                 </p>
+
+                                {/* Resume */}
+
+                                {application.resume && (
+
+                                    <div className="resume-section">
+
+                                        <p>
+
+                                            <strong>
+                                                📄 Resume :
+                                            </strong>{" "}
+
+                                            {application.resume
+                                                .split("/")
+                                                .pop()}
+
+                                        </p>
+
+                                        <a
+                                            href={
+                                                application.resume.startsWith("http")
+                                                    ? application.resume
+                                                    : `http://127.0.0.1:8000${application.resume}`
+                                            }
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="view-resume-btn"
+                                        >
+                                            View Resume
+                                        </a>
+
+                                    </div>
+
+                                )}
 
                                 <div className="status-buttons">
 

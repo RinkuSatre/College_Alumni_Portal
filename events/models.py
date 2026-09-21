@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from accounts.models import CustomUser
 
 
@@ -57,11 +58,11 @@ class Event(models.Model):
         null=True
     )
 
-    status = models.CharField(
-        max_length=20,
-        choices=EVENT_STATUS_CHOICES,
-        default="Upcoming"
-    )
+    # status = models.CharField(
+    #     max_length=20,
+    #     choices=EVENT_STATUS_CHOICES,
+    #     default="Upcoming"
+    # )
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -71,6 +72,17 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def calculated_status(self):
+        today = timezone.localdate()
+
+        if self.event_date < today:
+            return "Completed"
+        elif self.event_date == today:
+            return "Ongoing"
+        else:
+            return "Upcoming"
 
 
 class EventRegistration(models.Model):

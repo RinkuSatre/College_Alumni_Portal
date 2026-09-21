@@ -163,3 +163,17 @@
 }
 
 }
+
+.topbar-profile-photo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  display: block;
+}
+
+.profile-icon {
+  width: 42px;
+  height: 42px;
+}

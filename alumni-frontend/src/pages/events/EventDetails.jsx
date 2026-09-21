@@ -223,6 +223,15 @@ function EventDetails() {
                                         🗑 Delete Event
                                     </button>
 
+                                    <button
+                                        className="participants-btn"
+                                        onClick={() =>
+                                            navigate(`/events/${id}/participants`)
+                                        }
+                                    >
+                                        👥 View Registrations
+                                    </button>
+
                                 </>
 
                             )}

@@ -161,33 +161,35 @@ function Events() {
                       View Details
                     </Link>
 
-                    <button
-                      className="register-btn"
-                      onClick={async () => {
+                    {(user?.role === "student" || user?.role === "alumni") && (
+                      <button
+                        className="register-btn"
+                        onClick={async () => {
 
-                        try {
+                          try {
 
-                          await API.post(
-                            `events/${event.id}/register/`
-                          );
+                            await API.post(
+                              `events/${event.id}/register/`
+                            );
 
-                          alert(
-                            "✅ Event Registered Successfully"
-                          );
+                            alert(
+                              "✅ Event Registered Successfully"
+                            );
 
-                        } catch (error) {
+                          } catch (error) {
 
-                          alert(
-                            error.response?.data?.detail ||
-                            "Already Registered"
-                          );
+                            alert(
+                              error.response?.data?.detail ||
+                              "Already Registered"
+                            );
 
-                        }
+                          }
 
-                      }}
-                    >
-                      Register
-                    </button>
+                        }}
+                      >
+                        Register
+                      </button>
+                    )}
 
                   </div>
 

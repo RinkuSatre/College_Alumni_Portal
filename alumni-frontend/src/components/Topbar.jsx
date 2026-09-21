@@ -9,6 +9,7 @@ function Topbar() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const [count, setCount] = useState(0);
+  const [profilePhoto, setProfilePhoto] = useState(null);
 
   const today = new Date().toLocaleDateString("en-IN", {
     weekday: "long",
@@ -20,9 +21,11 @@ function Topbar() {
   useEffect(() => {
 
     fetchNotifications();
+    fetchProfile();
 
   }, []);
 
+  // Notifications
   const fetchNotifications = async () => {
 
     try {
@@ -35,11 +38,40 @@ function Topbar() {
 
       setCount(unread.length);
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
       console.log(error);
+
+    }
+
+  };
+
+  // Profile Photo
+  const fetchProfile = async () => {
+
+    try {
+
+      let response;
+
+      if (user?.role === "alumni") {
+
+        response = await API.get("profiles/alumni/");
+
+      } else {
+
+        response = await API.get("profiles/student/");
+
+      }
+
+      if (response.data?.profile_photo) {
+
+        setProfilePhoto(response.data.profile_photo);
+
+      }
+
+    } catch (error) {
+
+      console.log("Profile photo error:", error);
 
     }
 
@@ -78,11 +110,24 @@ function Topbar() {
 
         </Link>
 
+
         {/* Profile */}
 
         <div className="profile">
 
-          <PersonCircle />
+          {profilePhoto ? (
+
+            <img
+              src={profilePhoto}
+              alt="Profile"
+              className="topbar-profile-photo"
+            />
+
+          ) : (
+
+            <PersonCircle className="profile-icon" />
+
+          )}
 
           <div>
 

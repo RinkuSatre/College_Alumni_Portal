@@ -21,6 +21,7 @@ import Events from "../pages/events/Events";
 import EventDetails from "../pages/events/EventDetails";
 import CreateEvent from "../pages/events/CreateEvent";
 import EditEvent from "../pages/events/EditEvent";
+import EventParticipants from "../pages/events/EventParticipants";
 
 import Forum from "../pages/forum/Forum";
 import CreateQuestion from "../pages/forum/CreateQuestion";
@@ -81,6 +82,7 @@ function AppRoutes() {
         <Route path="/events/:id" element={<EventDetails />}/>
         <Route path="/events/create" element={<CreateEvent />}/>
         <Route path="/events/:id/edit" element={<EditEvent />}/>
+        <Route path="/events/:id/participants" element={<EventParticipants />}/>
 
         {/* forum */}
         <Route path="/forum"element={<Forum />}/>

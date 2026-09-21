@@ -1,5 +1,6 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.parsers import MultiPartParser, FormParser
 
 from .models import StudentProfile, AlumniProfile
 from .serializers import StudentProfileSerializer, AlumniProfileSerializer, AlumniListSerializer
@@ -9,6 +10,8 @@ from accounts.models import CustomUser
 class StudentProfileView(generics.RetrieveUpdateAPIView):
     serializer_class = StudentProfileSerializer
     permission_classes = [IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]
+
 
     def get_object(self):
         profile, created = StudentProfile.objects.get_or_create(
@@ -29,6 +32,7 @@ class StudentProfileView(generics.RetrieveUpdateAPIView):
 class AlumniProfileView(generics.RetrieveUpdateAPIView):
     serializer_class = AlumniProfileSerializer
     permission_classes = [IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]
 
     def get_object(self):
         profile, created = AlumniProfile.objects.get_or_create(

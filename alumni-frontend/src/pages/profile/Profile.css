@@ -251,3 +251,39 @@ height:130px;
 }
 
 }
+
+/* ============================= */
+/* Profile Photo */
+/* ============================= */
+
+.profile-photo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #1565c0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.photo-upload-btn {
+    display: inline-block;
+    padding: 9px 16px;
+    background: #1565c0;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.photo-upload-btn:hover {
+    background: #0d47a1;
+}

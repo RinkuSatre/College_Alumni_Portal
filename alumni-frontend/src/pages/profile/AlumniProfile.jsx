@@ -8,6 +8,7 @@ function AlumniProfile() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const [isEditing, setIsEditing] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const [profile, setProfile] = useState({
     full_name: "",
@@ -20,6 +21,7 @@ function AlumniProfile() {
     linkedin: "",
     phone: "",
     bio: "",
+    profile_photo: "",
   });
 
   useEffect(() => {
@@ -41,6 +43,7 @@ function AlumniProfile() {
         linkedin: response.data.linkedin || "",
         phone: response.data.phone || "",
         bio: response.data.bio || "",
+        profile_photo: response.data.profile_photo || "",
       });
     } catch (error) {
       console.log("GET Error:", error);
@@ -54,19 +57,84 @@ function AlumniProfile() {
     });
   };
 
+  // Profile photo select
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    // Only image files
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image file.");
+      return;
+    }
+
+    // 5 MB limit
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Image size should be less than 5 MB.");
+      return;
+    }
+
+    setSelectedPhoto(file);
+
+    // Temporary preview
+    setProfile({
+      ...profile,
+      profile_photo: URL.createObjectURL(file),
+    });
+  };
+
   const handleSave = async () => {
     try {
-      await API.put("profiles/alumni/", profile);
+      const formData = new FormData();
+
+      formData.append("full_name", profile.full_name);
+      formData.append("prn_number", profile.prn_number);
+      formData.append("passout_year", profile.passout_year);
+      formData.append("company_name", profile.company_name);
+      formData.append("job_title", profile.job_title);
+      formData.append("experience", profile.experience);
+      formData.append("current_city", profile.current_city);
+      formData.append("linkedin", profile.linkedin);
+      formData.append("phone", profile.phone);
+      formData.append("bio", profile.bio);
+
+      // Add photo only when a new photo is selected
+      if (selectedPhoto) {
+        formData.append("profile_photo", selectedPhoto);
+      }
+
+      await API.patch("profiles/alumni/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       alert("Profile Updated Successfully ✅");
 
-      fetchProfile();
+      setSelectedPhoto(null);
+
+      await fetchProfile();
 
       setIsEditing(false);
-    } catch (error) {
-      console.log("PUT Error:", error.response?.data);
-      alert("Profile Update Failed ❌");
-    }
+     }// catch (error) {
+    //   console.log("PUT Error:", error.response?.data);
+    //   alert("Profile Update Failed ❌");
+    // }
+
+      catch (error) {
+        console.log("PATCH ERROR DATA:", error.response?.data);
+        console.log("PATCH ERROR STATUS:", error.response?.status);
+        console.log("PATCH ERROR:", error);
+
+        alert(
+          JSON.stringify(
+            error.response?.data,
+            null,
+            2
+          )
+        );
+      }
   };
 
   return (
@@ -76,11 +144,41 @@ function AlumniProfile() {
 
       <div className="profile-content">
         <div className="profile-card">
+
+          {/* PROFILE HEADER */}
           <div className="profile-header">
-            <img
-              src="https://ui-avatars.com/api/?name=Alumni&background=1565c0&color=fff&size=200"
-              alt="Profile"
-            />
+
+            <div className="profile-photo-wrapper">
+
+              <img
+                src={
+                  profile.profile_photo
+                    ? profile.profile_photo
+                    : "https://ui-avatars.com/api/?name=Alumni&background=1565c0&color=fff&size=200"
+                }
+                alt="Profile"
+                className="profile-photo"
+              />
+
+              {isEditing && (
+                <>
+                  <label
+                    htmlFor="profile-photo-input"
+                    className="photo-upload-btn"
+                  >
+                    📷 Change Photo
+                  </label>
+
+                  <input
+                    id="profile-photo-input"
+                    type="file"
+                    accept="image/*"
+                    onChange={handlePhotoChange}
+                    style={{ display: "none" }}
+                  />
+                </>
+              )}
+            </div>
 
             <h2>{user?.username}</h2>
 
@@ -239,6 +337,7 @@ function AlumniProfile() {
 
             </div>
           )}
+
         </div>
       </div>
     </>

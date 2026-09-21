@@ -14,15 +14,42 @@ class EventSerializer(serializers.ModelSerializer):
         read_only=True
     )
 
+    status = serializers.CharField(
+    source="calculated_status",
+    read_only=True
+    )
+
+
     class Meta:
         model = Event
-        fields = "__all__"
-
-        read_only_fields = (
+        fields = [
+            "id",
             "created_by",
+            "created_by_name",
+            "created_by_id",
+            "title",
+            "description",
+            "event_type",
+            "event_date",
+            "event_time",
+            "venue",
+            "capacity",
+            "registration_deadline",
+            "banner",
+            "status",
             "created_at",
             "updated_at",
-        )
+        ]
+
+        read_only_fields = [
+            "id",
+            "created_by",
+            "created_by_name",
+            "created_by_id",
+            "status",
+            "created_at",
+            "updated_at",
+        ]
 
 
 class EventRegistrationSerializer(serializers.ModelSerializer):
