@@ -1,0 +1,326 @@
+
+/* ================================
+   ADMIN FEEDBACK PAGE
+================================ */
+
+.admin-feedback-page {
+  margin-left: 250px;
+  margin-top: 70px;
+  padding: 28px 30px;
+  width: calc(100% - 250px);
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
+  background: #f5f8fc;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+/* ================================
+   PAGE HEADING
+================================ */
+
+.admin-feedback-heading {
+  margin-bottom: 25px;
+}
+
+.admin-feedback-heading > span {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.admin-feedback-heading h1 {
+  margin: 0 0 10px;
+  color: #172554;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.admin-feedback-heading p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ================================
+   STATISTICS CARDS
+================================ */
+
+.admin-feedback-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.admin-stat-card {
+  min-width: 0;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+.admin-stat-card span {
+  display: block;
+  margin-bottom: 12px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.admin-stat-card strong {
+  display: block;
+  color: #1d4ed8;
+  font-size: 28px;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+/* ================================
+   FEEDBACK TABLE CONTAINER
+================================ */
+
+.admin-feedback-table-card {
+  width: 100%;
+  min-width: 0;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+}
+
+.admin-feedback-table-card h2 {
+  margin: 0 0 22px;
+  color: #172554;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ================================
+   TABLE SCROLL
+================================ */
+
+.admin-feedback-table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.admin-feedback-table {
+  width: 100%;
+  min-width: 950px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+}
+
+.admin-feedback-table th {
+  padding: 15px 14px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid #dbeafe;
+}
+
+.admin-feedback-table td {
+  padding: 15px 14px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.6;
+  vertical-align: top;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.admin-feedback-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-feedback-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+/* ================================
+   CATEGORY & MESSAGE
+================================ */
+
+.admin-category {
+  min-width: 100px;
+  text-transform: capitalize;
+}
+
+.admin-message {
+  min-width: 200px;
+  max-width: 320px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+/* ================================
+   STAR RATING
+================================ */
+
+.admin-rating {
+  color: #f59e0b !important;
+  font-size: 15px !important;
+  white-space: nowrap;
+}
+
+.admin-rating span {
+  color: #cbd5e1;
+}
+
+/* ================================
+   STATUS DROPDOWN
+================================ */
+
+.admin-status-select {
+  width: 125px;
+  max-width: 100%;
+  padding: 9px 10px;
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+.admin-status-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.admin-status-select:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* ================================
+   DELETE BUTTON
+================================ */
+
+.admin-delete-btn {
+  padding: 9px 14px;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-delete-btn:hover {
+  color: #ffffff;
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+/* ================================
+   LOADING / EMPTY / ERROR
+================================ */
+
+.admin-feedback-page > p,
+.admin-feedback-table-card > p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.admin-feedback-error {
+  padding: 14px 16px;
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+}
+
+/* ================================
+   RESPONSIVE: TABLETS
+================================ */
+
+@media (max-width: 1100px) {
+  .admin-feedback-page {
+    padding: 24px 20px;
+  }
+
+  .admin-feedback-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .admin-feedback-table-card {
+    padding: 18px;
+  }
+}
+
+/* ================================
+   RESPONSIVE: MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  .admin-feedback-page {
+    margin-left: 0;
+    margin-top: 70px;
+    width: 100%;
+    padding: 20px 14px;
+  }
+
+  .admin-feedback-heading h1 {
+    font-size: 23px;
+  }
+
+  .admin-feedback-heading p {
+    font-size: 13px;
+  }
+
+  .admin-feedback-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .admin-stat-card {
+    padding: 16px;
+  }
+
+  .admin-stat-card strong {
+    font-size: 24px;
+  }
+
+  .admin-feedback-table-card {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .admin-feedback-table-card h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .admin-feedback-stats {
+    grid-template-columns: 1fr;
+  }
+}

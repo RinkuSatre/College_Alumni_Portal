@@ -13,6 +13,8 @@ class JobSerializer(serializers.ModelSerializer):
         read_only=True
     )
 
+    status = serializers.ReadOnlyField()
+
     class Meta:
         model = Job
         fields = "__all__"

@@ -1,6 +1,6 @@
 from django.db import models
 from accounts.models import CustomUser
-
+from django.utils import timezone
 
 JOB_TYPE_CHOICES = (
     ("Full Time", "Full Time"),
@@ -47,6 +47,16 @@ class Job(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.company_name}"
+        
+    @property
+    def status(self):
+        if not self.is_active:
+            return "Closed"
+
+        if self.last_date < timezone.localdate():
+            return "Expired"
+
+        return "Active"
 
 APPLICATION_STATUS = (
     ("Pending", "Pending"),

@@ -239,3 +239,46 @@
 .unverify-btn:hover {
   opacity: 0.85;
 }
+
+
+.user-action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.delete-user-btn {
+    padding: 8px 13px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-user-btn:hover:not(:disabled) {
+    background: #dc2626;
+    color: #ffffff;
+    border-color: #dc2626;
+}
+
+.delete-user-btn:disabled,
+.verify-btn:disabled,
+.unverify-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.unverified {
+    display: inline-block;
+    padding: 5px 9px;
+    color: #92400e;
+    background: #fef3c7;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import API from "../../api/axios";
 import "./Dashboard.css";
 
 function StudentDashboard() {
+  const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
   const [points, setPoints] = useState(0);
 
@@ -97,22 +99,30 @@ function StudentDashboard() {
 
         <div className="dashboard-cards">
 
-          <div className="dashboard-card">
+          <div className="dashboard-card"
+          onClick={() => navigate("/jobs/my-applications")}
+          >
             <h3>💼 Applied Jobs</h3>
             <p>{applications.length}</p>
           </div>
 
-          <div className="dashboard-card">
+          <div className="dashboard-card"
+          onClick={() => navigate("/events/my-events")}
+          >
             <h3>📅 My Events</h3>
             <p>{events.length}</p>
           </div>
 
-          <div className="dashboard-card">
+          <div className="dashboard-card"
+           onClick={() => navigate("/rewards")}
+          >
             <h3>🏆 Reward Points</h3>
             <p>{points}</p>
           </div>
 
-          <div className="dashboard-card">
+          <div className="dashboard-card"
+          onClick={() => navigate("/forum/my-questions")}
+          >
             <h3>💬 Questions</h3>
             <p>{questions.length}</p>
           </div>

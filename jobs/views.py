@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.utils import timezone
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.exceptions import ValidationError
@@ -71,6 +72,11 @@ class ApplyJobView(generics.CreateAPIView):
     def perform_create(self, serializer):
 
         job = Job.objects.get(pk=self.kwargs["pk"])
+        if not job.is_active:
+            raise ValidationError("This job is closed.")
+
+        if job.last_date < timezone.localdate():
+            raise ValidationError("The application deadline for this job has expired.")
 
         # Student एकाच job ला पुन्हा apply करू शकत नाही
         if JobApplication.objects.filter(

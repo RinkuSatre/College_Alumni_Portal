@@ -22,6 +22,9 @@ const JobCard = ({ job }) => {
         <span className={`job-badge ${job.job_type.toLowerCase().replace(/\s+/g, "-")}`}>
           {job.job_type}
         </span>
+        <span className={`status-badge status-${(job.status || "Active").toLowerCase()}`}>
+          {job.status || "Active"}
+        </span>
       </div>
 
       <div className="job-info">

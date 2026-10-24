@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'notifications',
     'rewards',
     'reports',
+    'feedback',
     
 
 ]

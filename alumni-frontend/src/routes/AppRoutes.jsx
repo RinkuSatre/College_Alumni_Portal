@@ -16,12 +16,14 @@ import EditJob from "../pages/jobs/EditJob";
 import CreateJob from "../pages/jobs/CreateJob";
 import ApplyJob from "../pages/jobs/ApplyJob";
 import Applicants from "../pages/jobs/Applicants";
+import MyApplications from "../pages/jobs/MyApplications";
 
 import Events from "../pages/events/Events";
 import EventDetails from "../pages/events/EventDetails";
 import CreateEvent from "../pages/events/CreateEvent";
 import EditEvent from "../pages/events/EditEvent";
 import EventParticipants from "../pages/events/EventParticipants";
+import MyEvents from "../pages/events/MyEvents";
 
 import Forum from "../pages/forum/Forum";
 import CreateQuestion from "../pages/forum/CreateQuestion";
@@ -29,6 +31,7 @@ import ForumDetails from "../pages/forum/ForumDetails";
 // import QuestionDetails from "./pages/forum/QuestionDetails";
 import EditQuestion from "../pages/forum/EditQuestion";
 import EditAnswer from "../pages/forum/EditAnswer";
+import MyQuestions from "../pages/forum/MyQuestions";
 
 import ChatList from "../pages/chat/ChatList";
 import StartChat from "../pages/chat/StartChat";
@@ -44,7 +47,8 @@ import Settings from "../pages/admin/Settings";
 
 import Rewards from "../pages/rewards/Rewards";
 
-
+import Feedback from "../pages/feedback/Feedback";
+import AdminFeedback from "../pages/feedback/AdminFeedback";
 
 
 function AppRoutes() {
@@ -75,6 +79,9 @@ function AppRoutes() {
         <Route path="/jobs/create"element={<CreateJob />}/>
         <Route path="/apply-job/:id" element={<ApplyJob />} />
         <Route path="/jobs/:id/applicants"element={<Applicants />}/>
+        <Route path="/jobs/my-applications"element={<MyApplications />}/>
+
+       
        
 
         {/* events */}
@@ -83,6 +90,8 @@ function AppRoutes() {
         <Route path="/events/create" element={<CreateEvent />}/>
         <Route path="/events/:id/edit" element={<EditEvent />}/>
         <Route path="/events/:id/participants" element={<EventParticipants />}/>
+        <Route path="/events/my-events" element={<MyEvents />}/>
+
 
         {/* forum */}
         <Route path="/forum"element={<Forum />}/>
@@ -91,6 +100,7 @@ function AppRoutes() {
         {/* <Route path="/forum/:id" element={<QuestionDetails />}/> */}
         <Route path="/forum/:id/edit" element={<EditQuestion />}/> 
         <Route path="/forum/answer/:id/edit" element={<EditAnswer />}/>
+        <Route path="/forum/my-questions"element={<MyQuestions />}/>
 
         {/* chat */}
         <Route path="/chat" element={<ChatList />}/>
@@ -108,6 +118,10 @@ function AppRoutes() {
         <Route path="/admin/settings" element={<Settings />}/>
 
         <Route path="/rewards" element={<Rewards />}/>
+
+        {/* feedback */}
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/admin/feedback" element={<AdminFeedback />} />
 
         
         {/* 404 */}

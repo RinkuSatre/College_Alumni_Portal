@@ -14,7 +14,8 @@ from .views import (
     ConversationReportView,
     MessageReportView,
     UserReportView,
-    UserVerifyView
+    UserVerifyView,
+    UserDeleteView,
 )
 
     
@@ -106,6 +107,13 @@ urlpatterns = [
         "users/<int:pk>/verify/",
         UserVerifyView.as_view(),
         name="user-verify"
+    ),
+      
+
+    path(
+    "users/<int:pk>/",
+    UserDeleteView.as_view(),
+    name="user-delete",
     ),
 
 ]

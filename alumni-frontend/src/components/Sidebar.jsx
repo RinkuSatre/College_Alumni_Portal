@@ -136,14 +136,12 @@ function Sidebar() {
               </Link>
             </li>
 
-
             <li>
-              <Link to="/feedback">
-                <StarFill />
+              <Link to="/admin/feedback">
+              <StarFill />
                 Feedback
               </Link>
             </li>
-
 
             <li>
               <Link to="/admin/settings">

@@ -246,3 +246,56 @@ class UserVerifyView(APIView):
                 else "User unverified successfully."
             )
         })
+
+class UserDeleteView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, pk):
+
+        # Only admin can delete users
+        if not (
+            request.user.role == "admin"
+            or request.user.is_staff
+            or request.user.is_superuser
+        ):
+            return Response(
+                {"detail": "Admin access required."},
+                status=403
+            )
+
+        try:
+            user = CustomUser.objects.get(pk=pk)
+        except CustomUser.DoesNotExist:
+            return Response(
+                {"detail": "User not found."},
+                status=404
+            )
+
+        # Prevent deleting the currently logged-in admin
+        if user.pk == request.user.pk:
+            return Response(
+                {"detail": "You cannot delete your own account."},
+                status=400
+            )
+
+        # Prevent deleting admin accounts
+        if (
+            user.role == "admin"
+            or user.is_staff
+            or user.is_superuser
+        ):
+            return Response(
+                {"detail": "Admin accounts cannot be deleted here."},
+                status=403
+            )
+
+        username = user.username
+        user.delete()
+
+        return Response(
+            {
+                "message": f"User {username} deleted successfully."
+            },
+            status=200
+        )

@@ -128,6 +128,10 @@ const JobDetails = () => {
 
         <h3>{job.company_name}</h3>
 
+        <span className={`status-badge status-${(job.status || "Active").toLowerCase()}`}>
+          {job.status || "Active"}
+        </span>
+
         <div className="details-grid">
 
           <div>
@@ -166,15 +170,22 @@ const JobDetails = () => {
 
         <div className="job-buttons">
 
-          {isStudent && (
-
-            <button
-              className="apply-btn"
-              onClick={handleApply}
-            >
+          {isStudent && job.status === "Active" && (
+            <button className="apply-btn" onClick={handleApply}>
               Apply Now
             </button>
+          )}
 
+          {isStudent && job.status === "Expired" && (
+            <p className="job-status-message">
+              Application deadline has expired.
+            </p>
+          )}
+
+          {isStudent && job.status === "Closed" && (
+            <p className="job-status-message">
+              This job is currently closed.
+            </p>
           )}
 
           {(isOwner || isAdmin) && (
