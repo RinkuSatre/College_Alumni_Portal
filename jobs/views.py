@@ -22,30 +22,32 @@ class JobListCreateView(generics.ListCreateAPIView):
 
         return [IsAuthenticatedOrReadOnly()]
 
+    
     def perform_create(self, serializer):
 
         job = serializer.save(
-            posted_by=self.request.user
+            posted_by=self.request.user,
+            is_active=True
         )
 
         students = CustomUser.objects.filter(
-            role="Student"
+            role__iexact="student"
         )
 
         notifications = []
 
         for student in students:
-
             notifications.append(
                 Notification(
-                   user=student,
-                   title="New Job Posted",
-                   message=f"{job.title} job has been posted.",
-                   link="/jobs"
+                    user=student,
+                    title="New Job Posted",
+                    message=f"{job.title} job has been posted.",
+                    link="/jobs"
                 )
             )
 
         Notification.objects.bulk_create(notifications)
+
 
 class JobDetailView(generics.RetrieveUpdateDestroyAPIView):
 
@@ -119,3 +121,22 @@ class UpdateApplicationStatusView(generics.UpdateAPIView):
     queryset = JobApplication.objects.all()
     serializer_class = JobApplicationSerializer
     permission_classes = [IsAuthenticated]
+
+class MyJobsView(generics.ListAPIView):
+
+    serializer_class = JobSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+
+        print("Logged-in user:", user.email)
+        print("Logged-in role:", user.role)
+
+        my_jobs = Job.objects.filter(
+            posted_by=user
+        ).order_by("-id")
+
+        print("My jobs count:", my_jobs.count())
+
+        return my_jobs 

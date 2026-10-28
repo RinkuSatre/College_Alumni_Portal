@@ -47,3 +47,32 @@ class Feedback(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
+
+
+class ContactQuery(models.Model):
+
+    STATUS_CHOICES = [
+        ("pending", "Pending"),
+        ("in_review", "In Review"),
+        ("resolved", "Resolved"),
+    ]
+
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    subject = models.CharField(max_length=150)
+    message = models.TextField(max_length=2000)
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="pending"
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.name} - {self.subject}"

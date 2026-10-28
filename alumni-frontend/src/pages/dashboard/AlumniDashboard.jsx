@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import API from "../../api/axios";
 import "./Dashboard.css";
 
 function AlumniDashboard() {
+
+  const navigate = useNavigate();
 
   const [profile, setProfile] = useState(null);
 
@@ -42,14 +45,18 @@ function AlumniDashboard() {
     }
   };
 
-  const fetchJobs = async () => {
-    try {
-      const response = await API.get("jobs/");
-      setJobs(response.data.results || response.data);
-    } catch (error) {
-      console.log("Jobs Error :", error);
-    }
-  };
+  
+const fetchJobs = async () => {
+  try {
+    const response = await API.get("jobs/my-jobs/");
+    const data = response.data;
+
+    setJobs(Array.isArray(data) ? data : data.results || []);
+  } catch (error) {
+    console.log("My Jobs Error :", error);
+  }
+};
+
 
   const fetchEvents = async () => {
     try {
@@ -91,22 +98,26 @@ function AlumniDashboard() {
 
         <div className="dashboard-cards">
 
-          <div className="dashboard-card">
+          <div className="dashboard-card"
+               onClick={() => navigate("/jobs/my-jobs")}>
             <h3>💼 Jobs</h3>
             <p>{jobs.length}</p>
           </div>
 
-          <div className="dashboard-card">
+          <div className="dashboard-card"
+               onClick={() => navigate("/events/my-events")}>
             <h3>📅 My Events</h3>
             <p>{events.length}</p>
           </div>
 
-          <div className="dashboard-card">
+          <div className="dashboard-card"
+               onClick={() => navigate("/rewards")}>
             <h3>🏆 Reward Points</h3>
             <p>{points}</p>
           </div>
 
-          <div className="dashboard-card">
+          <div className="dashboard-card"
+               onClick={() => navigate("/forum/my-answers")}>
             <h3>💬 My Answers</h3>
             <p>{answers.length}</p>
           </div>

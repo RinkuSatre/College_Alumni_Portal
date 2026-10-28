@@ -1,8 +1,24 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated, BasePermission
+from rest_framework.permissions import (
+    IsAuthenticated,
+    BasePermission,  
+    AllowAny,
+)
 
-from .models import Feedback
-from .serializers import FeedbackSerializer, AdminFeedbackSerializer
+from .models import Feedback,  ContactQuery
+from .serializers import (
+    
+    FeedbackSerializer, 
+    AdminFeedbackSerializer, 
+    ContactQuerySerializer,  
+    AdminContactQuerySerializer,
+)
+
+from django.contrib.auth import get_user_model
+from django.db.models import Q
+from notifications.models import Notification
+
+User = get_user_model()
 
 
 def is_feedback_admin(user):
@@ -36,8 +52,24 @@ class FeedbackListCreateView(generics.ListCreateAPIView):
         ).select_related("user")
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        feedback = serializer.save(user=self.request.user)
 
+        admin_users = User.objects.filter(
+            Q(is_staff=True) |
+            Q(is_superuser=True) |
+            Q(role="admin")
+        ).distinct()
+
+        for admin in admin_users:
+            Notification.objects.create(
+                user=admin,
+                title="New Feedback Received",
+                message=(
+                    f"{self.request.user.username} has submitted "
+                    f"new feedback."
+                ),
+                link="/admin/feedback/"
+            )
 
 class AdminFeedbackListView(generics.ListAPIView):
     serializer_class = AdminFeedbackSerializer
@@ -51,3 +83,47 @@ class AdminFeedbackDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated, IsFeedbackAdmin]
 
     queryset = Feedback.objects.select_related("user").all()
+
+
+# Public Contact Query Submission
+class ContactQueryCreateView(generics.CreateAPIView):
+    queryset = ContactQuery.objects.all()
+    serializer_class = ContactQuerySerializer
+    permission_classes = [AllowAny]
+
+    def perform_create(self, serializer):
+        contact_query = serializer.save()
+
+        admin_users = User.objects.filter(
+            Q(is_staff=True) |
+            Q(is_superuser=True) |
+            Q(role="admin")
+        ).distinct()
+
+        for admin in admin_users:
+            Notification.objects.create(
+                user=admin,
+                title="New Contact Query",
+                message=(
+                    f"New contact query received from "
+                    f"{contact_query.name} - "
+                    f"{contact_query.subject}"
+                ),
+                link="/admin/contact-queries/"
+            )
+
+
+# Admin: View All Contact Queries
+class AdminContactQueryListView(generics.ListAPIView):
+    queryset = ContactQuery.objects.all()
+    serializer_class = ContactQuerySerializer
+    permission_classes = [IsAuthenticated, IsFeedbackAdmin]
+
+
+# Admin: View, Update Status, or Delete a Query
+class AdminContactQueryDetailView(
+    generics.RetrieveUpdateDestroyAPIView
+):
+    queryset = ContactQuery.objects.all()
+    serializer_class = AdminContactQuerySerializer
+    permission_classes = [IsAuthenticated, IsFeedbackAdmin]

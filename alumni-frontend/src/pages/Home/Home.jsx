@@ -9,7 +9,6 @@ import Gallery from "../../components/Gallery";
 import SuccessStories from "../../components/SuccessStories";
 import LatestJobs from "../../components/LatestJobs";
 import UpcomingEvents from "../../components/UpcomingEvents";
-import Feedback from "../../components/Feedback";
 import Contact from "../../components/Contact";
 import Footer from "../../components/Footer";
 
@@ -25,7 +24,6 @@ function Home() {
       <SuccessStories />
       <LatestJobs />
       <UpcomingEvents />
-      <Feedback />
       <Contact />
       <Footer />
     </>

@@ -1,0 +1,177 @@
+
+/* ===== Contact Queries Page ===== */
+
+.dashboard-content {
+  padding: 25px;
+  background: #f5f8fc;
+  min-height: calc(100vh - 70px);
+}
+
+.dashboard-content h2 {
+  color: #173b70;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.dashboard-content > p {
+  color: #667085;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+/* Success and error messages */
+.dashboard-content p:not(:first-child) {
+  line-height: 1.5;
+}
+
+/* Table container */
+.dashboard-content > div {
+  width: 100%;
+}
+
+/* Contact queries table */
+.dashboard-content table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(23, 59, 112, 0.08);
+}
+
+/* Table heading */
+.dashboard-content table thead {
+  background: #173f7a;
+}
+
+.dashboard-content table th {
+  background: #173f7a;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 15px 12px !important;
+  border: 1px solid #31588d !important;
+  white-space: nowrap;
+}
+
+/* Table data */
+.dashboard-content table td {
+  color: #344054;
+  font-size: 13px;
+  padding: 13px 12px !important;
+  border: 1px solid #e4eaf2 !important;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+/* Alternate row color */
+.dashboard-content table tbody tr:nth-child(even) {
+  background: #f7faff;
+}
+
+/* Hover effect */
+.dashboard-content table tbody tr:hover {
+  background: #edf4ff;
+  transition: background 0.2s ease;
+}
+
+/* Contact details */
+.dashboard-content table td div {
+  margin-bottom: 4px;
+}
+
+/* Status dropdown */
+.dashboard-content table select {
+  min-width: 120px;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #173b70;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.dashboard-content table select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Delete button */
+.dashboard-content table button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #dc3545;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dashboard-content table button:hover {
+  background: #b02a37;
+  transform: translateY(-1px);
+}
+
+.dashboard-content table button:active {
+  transform: scale(0.97);
+}
+
+/* Loading and empty messages */
+.dashboard-content > p {
+  line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .dashboard-content {
+    padding: 18px;
+  }
+
+  .dashboard-content h2 {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-content {
+    padding: 12px;
+  }
+
+  .dashboard-content h2 {
+    font-size: 20px;
+  }
+
+  .dashboard-content table th,
+  .dashboard-content table td {
+    padding: 10px !important;
+    font-size: 12px;
+  }
+
+  .dashboard-content table select {
+    min-width: 105px;
+  }
+}
+
+/* Fix Delete button text wrapping */
+.dashboard-content table td:last-child {
+  white-space: nowrap;
+  min-width: 85px;
+}
+
+.dashboard-content table td:last-child button {
+  display: inline-block;
+  width: auto;
+  min-width: 60px;
+  padding: 8px 12px;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  flex-shrink: 0;
+}

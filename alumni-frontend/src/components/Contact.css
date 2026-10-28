@@ -1,12 +1,12 @@
 /* ===========================
-        Contact
+        contact
 =========================== */
 
 .contact{
 
     padding:90px 8%;
 
-    background:#ffffff;
+    background:#f8fbff;
 
     text-align:center;
 
@@ -22,75 +22,95 @@
 
 }
 
-.contact > p{
+.contact p{
 
     color:#666;
 
     font-size:18px;
 
-    margin-bottom:50px;
+    margin-bottom:40px;
 
 }
 
-.contact-container{
+.contact form{
 
-    display:grid;
+    max-width:700px;
 
-    grid-template-columns:repeat(3,1fr);
+    margin:auto;
 
-    gap:30px;
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
 
 }
 
-.contact-card{
+.contact input,
+.contact select,
+.contact textarea{
 
-    background:#f8fbff;
+    width:100%;
 
-    padding:35px;
+    padding:16px;
 
-    border-radius:20px;
+    border:1px solid #ddd;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.3s;
+
+    font-family:inherit;
+
+}
+
+.contact input:focus,
+.contact select:focus,
+.contact textarea:focus{
+
+    border-color:#1565c0;
+
+    box-shadow:0 0 10px rgba(21,101,192,.15);
+
+}
+
+.contact textarea{
+
+    resize:none;
+
+}
+
+.contact button{
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1565c0;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
 
     transition:.3s;
 
 }
 
-.contact-card:hover{
+.contact button:hover{
 
-    transform:translateY(-10px);
+    background:#0d47a1;
 
-    box-shadow:0 20px 40px rgba(0,0,0,.15);
-
-}
-
-.contact-card h3{
-
-    color:#1565c0;
-
-    margin-bottom:20px;
-
-    font-size:24px;
-
-}
-
-.contact-card p{
-
-    color:#555;
-
-    line-height:1.8;
-
-    font-size:16px;
-
-}
-
-@media(max-width:992px){
-
-.contact-container{
-
-grid-template-columns:repeat(2,1fr);
-
-}
+    transform:translateY(-2px);
 
 }
 
@@ -104,13 +124,13 @@ padding:70px 20px;
 
 .contact h2{
 
-font-size:34px;
+font-size:32px;
 
 }
 
-.contact-container{
+.contact p{
 
-grid-template-columns:1fr;
+font-size:16px;
 
 }
 

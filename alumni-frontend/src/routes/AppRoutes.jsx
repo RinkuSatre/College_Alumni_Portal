@@ -17,6 +17,7 @@ import CreateJob from "../pages/jobs/CreateJob";
 import ApplyJob from "../pages/jobs/ApplyJob";
 import Applicants from "../pages/jobs/Applicants";
 import MyApplications from "../pages/jobs/MyApplications";
+import MyJobs from "../pages/jobs/MyJobs";
 
 import Events from "../pages/events/Events";
 import EventDetails from "../pages/events/EventDetails";
@@ -32,6 +33,7 @@ import ForumDetails from "../pages/forum/ForumDetails";
 import EditQuestion from "../pages/forum/EditQuestion";
 import EditAnswer from "../pages/forum/EditAnswer";
 import MyQuestions from "../pages/forum/MyQuestions";
+import MyAnswers from "../pages/forum/MyAnswers";
 
 import ChatList from "../pages/chat/ChatList";
 import StartChat from "../pages/chat/StartChat";
@@ -49,6 +51,7 @@ import Rewards from "../pages/rewards/Rewards";
 
 import Feedback from "../pages/feedback/Feedback";
 import AdminFeedback from "../pages/feedback/AdminFeedback";
+import AdminContactQueries from "../pages/feedback/AdminContactQueries";
 
 
 function AppRoutes() {
@@ -80,6 +83,7 @@ function AppRoutes() {
         <Route path="/apply-job/:id" element={<ApplyJob />} />
         <Route path="/jobs/:id/applicants"element={<Applicants />}/>
         <Route path="/jobs/my-applications"element={<MyApplications />}/>
+        <Route path="/jobs/my-jobs" element={<MyJobs />} />
 
        
        
@@ -101,6 +105,8 @@ function AppRoutes() {
         <Route path="/forum/:id/edit" element={<EditQuestion />}/> 
         <Route path="/forum/answer/:id/edit" element={<EditAnswer />}/>
         <Route path="/forum/my-questions"element={<MyQuestions />}/>
+        <Route path="/forum/my-answers"element={<MyAnswers />}
+/>
 
         {/* chat */}
         <Route path="/chat" element={<ChatList />}/>
@@ -122,6 +128,8 @@ function AppRoutes() {
         {/* feedback */}
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/admin/feedback" element={<AdminFeedback />} />
+        {/* Contact Queries */}
+        <Route path="/admin/contact-queries" element={<AdminContactQueries />} />
 
         
         {/* 404 */}

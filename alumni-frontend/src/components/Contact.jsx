@@ -1,53 +1,120 @@
+
+import { useState } from "react";
+import API from "../api/axios";
 import "./Contact.css";
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess("");
+    setError("");
+
+    try {
+      await API.post("feedback/contact/", formData);
+
+      setSuccess("Your query has been submitted successfully!");
+
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err) {
+      setError(
+        err.response?.data
+          ? JSON.stringify(err.response.data)
+          : "Unable to submit your query. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-
     <section id="contact" className="contact">
-
       <h2>Contact Us</h2>
-
       <p>
-        We'd love to hear from you.
+        Have a question about our MCA Alumni Portal?
+        Send us your query.
       </p>
 
-      <div className="contact-container">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
 
-        <div className="contact-card">
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+        />
 
-          <h3>📍 Address</h3>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
 
-          <p>
-            Yashoda Technical Campus,
-            Wadhe, Satara,
-            Maharashtra - 415011
-          </p>
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          value={formData.subject}
+          onChange={handleChange}
+          required
+        />
 
-        </div>
+        <textarea
+          rows="5"
+          name="message"
+          placeholder="Write your query here..."
+          value={formData.message}
+          onChange={handleChange}
+          required
+        />
 
-        <div className="contact-card">
+        {success && <p style={{ color: "green" }}>{success}</p>}
+        {error && <p style={{ color: "red" }}>{error}</p>}
 
-          <h3>📞 Phone</h3>
-
-          <p>+91 9876543210</p>
-
-        </div>
-
-        <div className="contact-card">
-
-          <h3>✉ Email</h3>
-
-          <p>alumni@ytc.edu.in</p>
-
-        </div>
-
-      </div>
-
+        <button type="submit" disabled={loading}>
+          {loading ? "Submitting..." : "Submit Query"}
+        </button>
+      </form>
     </section>
-
   );
-
 }
 
 export default Contact;

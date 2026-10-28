@@ -143,6 +143,15 @@ function Sidebar() {
               </Link>
             </li>
 
+            
+            <li>
+              <Link to="/admin/contact-queries">
+                <EnvelopeFill />
+                Contact Queries
+              </Link>
+            </li>
+
+
             <li>
               <Link to="/admin/settings">
                 <GearFill />
